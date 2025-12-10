@@ -1,0 +1,12 @@
+title,type,dayOfWeek,startTime,endTime,location,instructor,course
+Programming Fundamentals,class,1,09:00,10:30,Lab 1,Dr. Sarah Smith,CS101
+Data Structures,class,1,14:00,16:00,Room 201,Prof. Michael Johnson,CS201
+Web Development,class,2,10:00,12:00,Lab 2,Dr. Emily Brown,CS301
+Database Systems,class,3,13:00,15:00,Room 105,Prof. James Davis,CS401
+Algorithms,class,3,16:00,18:00,Room 202,Dr. Lisa Wilson,CS301
+Software Engineering,class,4,09:00,11:00,Room 303,Prof. Robert Taylor,CS501
+Mobile Development,class,4,14:00,16:00,Lab 3,Dr. Amanda Martinez,CS401
+Computer Networks,class,5,10:00,12:00,Room 104,Prof. Daniel Anderson,CS301
+Machine Learning Intro,class,5,14:00,16:00,Lab 4,Dr. Jennifer White,CS601
+CS Club Meeting,event,2,17:00,18:30,Student Center,Various,
+Midterm Exam - Data Structures,exam,3,09:00,11:00,Main Hall,Prof. Michael Johnson,CS201
