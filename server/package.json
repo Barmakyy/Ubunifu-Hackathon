@@ -1,30 +1,29 @@
 {
-  "name": "student-accountability-server",
+  "name": "yelpme-json-server",
   "version": "1.0.0",
-  "description": "Server for Student Accountability App",
-  "main": "server.js",
-  "type": "module",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achingachris/yelpme-json-server.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achingachris/yelpme-json-server/issues"
+  },
+  "homepage": "https://github.com/achingachris/yelpme-json-server#readme",
   "dependencies": {
-    "@google/generative-ai": "^0.24.1",
-    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "csv-parser": "^3.0.0",
-    "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.3",
-    "multer": "^1.4.5-lts.1",
-    "node-cron": "^3.0.3",
-    "openai": "^4.24.1"
+    "json-serve": "^0.1.0",
+    "json-server": "^0.17.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "nodemon": "^2.0.20"
   }
 }

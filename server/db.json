@@ -1,0 +1,230 @@
+{
+  "institutions": [
+    {
+      "id": "inst1",
+      "name": "Coast Technical College",
+      "address": "100 Mombasa Rd, Mombasa, Kenya",
+      "type": "college"
+    }
+  ],
+  "users": [
+    {
+      "id": "t1",
+      "role": "teacher",
+      "firstName": "Anne",
+      "lastName": "Ndungu",
+      "email": "anne.ndungu@coasttech.ac.ke",
+      "institutionId": "inst1",
+      "password": "lec456"
+    },
+    {
+      "id": "t2",
+      "role": "teacher",
+      "firstName": "Brian",
+      "lastName": "Mwangi",
+      "email": "brian.mwangi@coasttech.ac.ke",
+      "institutionId": "inst1",
+      "password": "lec456"
+    },
+    {
+      "id": "t3",
+      "role": "teacher",
+      "firstName": "Carol",
+      "lastName": "Otieno",
+      "email": "carol.otieno@coasttech.ac.ke",
+      "institutionId": "inst1",
+      "password": "lec456"
+    },
+    {
+      "id": "s1",
+      "role": "student",
+      "firstName": "Fatima",
+      "lastName": "Amin",
+      "email": "fatima.amin@student.coasttech.ac.ke",
+      "institutionId": "inst1",
+      "classIds": ["class1", "class2"],
+      "password": "student123"
+    },
+    {
+      "id": "s2",
+      "role": "student",
+      "firstName": "James",
+      "lastName": "Kiptoo",
+      "email": "james.kiptoo@student.coasttech.ac.ke",
+      "institutionId": "inst1",
+      "classIds": ["class1", "class3"],
+      "password": "student123"
+    },
+    {
+      "id": "s3",
+      "role": "student",
+      "firstName": "Lillian",
+      "lastName": "Wachira",
+      "email": "lillian.wachira@student.coasttech.ac.ke",
+      "institutionId": "inst1",
+      "classIds": ["class2", "class3"],
+      "password": "student123"
+    },
+    {
+      "id": "s4",
+      "role": "student",
+      "firstName": "Mohamed",
+      "lastName": "Hussein",
+      "email": "mohamed.hussein@student.coasttech.ac.ke",
+      "institutionId": "inst1",
+      "classIds": ["class1", "class3"],
+      "password": "student123"
+    },
+    {
+      "id": "s5",
+      "role": "student",
+      "firstName": "Rose",
+      "lastName": "Njoroge",
+      "email": "rose.njoroge@student.coasttech.ac.ke",
+      "institutionId": "inst1",
+      "classIds": ["class2", "class3"],
+      "password": "student123"
+    }
+  ],
+  "semesters": [
+    {
+      "id": "sem2025_1",
+      "institutionId": "inst1",
+      "name": "Semester 1 2025",
+      "startDate": "2025-01-10",
+      "endDate": "2025-05-20"
+    }
+  ],
+  "classes": [
+    {
+      "id": "class1",
+      "institutionId": "inst1",
+      "name": "Diploma CS Year 1 - Group A",
+      "semesterId": "sem2025_1",
+      "teacherId": "t1"
+    },
+    {
+      "id": "class2",
+      "institutionId": "inst1",
+      "name": "Diploma CS Year 1 - Group B",
+      "semesterId": "sem2025_1",
+      "teacherId": "t2"
+    },
+    {
+      "id": "class3",
+      "institutionId": "inst1",
+      "name": "Diploma CS Year 2 - Group A",
+      "semesterId": "sem2025_1",
+      "teacherId": "t3"
+    },
+    {
+      "id": "class4",
+      "institutionId": "inst1",
+      "name": "Diploma ICT Year 1 - Group A",
+      "semesterId": "sem2025_1",
+      "teacherId": "t1"
+    },
+    {
+      "id": "class5",
+      "institutionId": "inst1",
+      "name": "Diploma ICT Year 1 - Group B",
+      "semesterId": "sem2025_1",
+      "teacherId": "t2"
+    },
+    {
+      "id": "class6",
+      "institutionId": "inst1",
+      "name": "Diploma ICT Year 2 - Group A",
+      "semesterId": "sem2025_1",
+      "teacherId": "t3"
+    }
+  ],
+  "units": [
+    { "id": "u1",  "classId": "class1", "name": "Programming 101",           "teacherId": "t1" },
+    { "id": "u2",  "classId": "class1", "name": "Discrete Mathematics",     "teacherId": "t1" },
+    { "id": "u3",  "classId": "class1", "name": "Computer Systems",         "teacherId": "t1" },
+    { "id": "u4",  "classId": "class1", "name": "Databases",                "teacherId": "t1" },
+    { "id": "u5",  "classId": "class1", "name": "Networks",                 "teacherId": "t1" },
+
+    { "id": "u6",  "classId": "class2", "name": "Programming 101",           "teacherId": "t2" },
+    { "id": "u7",  "classId": "class2", "name": "Mathematics for CS",       "teacherId": "t2" },
+    { "id": "u8",  "classId": "class2", "name": "Operating Systems",        "teacherId": "t2" },
+    { "id": "u9",  "classId": "class2", "name": "Introduction to AI",       "teacherId": "t2" },
+    { "id": "u10", "classId": "class2", "name": "Data Structures",          "teacherId": "t2" },
+
+    { "id": "u11", "classId": "class3", "name": "Advanced Programming",     "teacherId": "t3" },
+    { "id": "u12", "classId": "class3", "name": "Algorithms",               "teacherId": "t3" },
+    { "id": "u13", "classId": "class3", "name": "Software Engineering",     "teacherId": "t3" },
+    { "id": "u14", "classId": "class3", "name": "Database Systems",         "teacherId": "t3" },
+    { "id": "u15", "classId": "class3", "name": "Computer Networks II",     "teacherId": "t3" },
+
+    { "id": "u16", "classId": "class4", "name": "Networking Basics",        "teacherId": "t1" },
+    { "id": "u17", "classId": "class4", "name": "ICT Fundamentals",         "teacherId": "t1" },
+    { "id": "u18", "classId": "class4", "name": "Web Development",          "teacherId": "t1" },
+    { "id": "u19", "classId": "class4", "name": "Database Fundamentals",    "teacherId": "t1" },
+    { "id": "u20", "classId": "class4", "name": "System Administration",    "teacherId": "t1" },
+
+    { "id": "u21", "classId": "class5", "name": "ICT Fundamentals",         "teacherId": "t2" },
+    { "id": "u22", "classId": "class5", "name": "Computer Maintenance",     "teacherId": "t2" },
+    { "id": "u23", "classId": "class5", "name": "Web Design",               "teacherId": "t2" },
+    { "id": "u24", "classId": "class5", "name": "Introduction to Programming", "teacherId": "t2" },
+    { "id": "u25", "classId": "class5", "name": "User Support & Services",  "teacherId": "t2" },
+
+    { "id": "u26", "classId": "class6", "name": "Advanced ICT Systems",     "teacherId": "t3" },
+    { "id": "u27", "classId": "class6", "name": "Network Security",         "teacherId": "t3" },
+    { "id": "u28", "classId": "class6", "name": "Cloud Computing",          "teacherId": "t3" },
+    { "id": "u29", "classId": "class6", "name": "Data Centers",             "teacherId": "t3" },
+    { "id": "u30", "classId": "class6", "name": "Systems Integration",      "teacherId": "t3" }
+  ],
+  "timetable": [
+    {
+      "classId": "class1",
+      "day": "Monday",
+      "periods": [
+        { "period": 1, "unitId": "u1",  "startTime": "08:00", "endTime": "09:00" },
+        { "period": 2, "unitId": "u2",  "startTime": "09:15", "endTime": "10:15" },
+        { "period": 3, "unitId": "u3",  "startTime": "10:30", "endTime": "11:30" }
+      ]
+    },
+    {
+      "classId": "class2",
+      "day": "Tuesday",
+      "periods": [
+        { "period": 1, "unitId": "u6",  "startTime": "08:00", "endTime": "09:00" },
+        { "period": 2, "unitId": "u7",  "startTime": "09:15", "endTime": "10:15" }
+      ]
+    },
+    {
+      "classId": "class3",
+      "day": "Wednesday",
+      "periods": [
+        { "period": 1, "unitId": "u11", "startTime": "10:00", "endTime": "11:00" },
+        { "period": 2, "unitId": "u12", "startTime": "11:15", "endTime": "12:15" }
+      ]
+    },
+    {
+      "classId": "class4",
+      "day": "Thursday",
+      "periods": [
+        { "period": 1, "unitId": "u16", "startTime": "08:00", "endTime": "09:00" },
+        { "period": 2, "unitId": "u17", "startTime": "09:15", "endTime": "10:15" }
+      ]
+    },
+    {
+      "classId": "class5",
+      "day": "Friday",
+      "periods": [
+        { "period": 1, "unitId": "u21", "startTime": "08:00", "endTime": "09:00" },
+        { "period": 2, "unitId": "u22", "startTime": "09:15", "endTime": "10:15" }
+      ]
+    },
+    {
+      "classId": "class6",
+      "day": "Monday",
+      "periods": [
+        { "period": 1, "unitId": "u26", "startTime": "10:00", "endTime": "11:00" },
+        { "period": 2, "unitId": "u27", "startTime": "11:15", "endTime": "12:15" }
+      ]
+    }
+  ]
+}
