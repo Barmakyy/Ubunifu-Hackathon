@@ -4,7 +4,40 @@
       "id": "inst1",
       "name": "Coast Technical College",
       "address": "100 Mombasa Rd, Mombasa, Kenya",
-      "type": "college"
+      "type": "college",
+      "rewards": [
+        {
+          "milestone": 10,
+          "reward": "Library Priority Access",
+          "description": "Skip the queue and get priority access to library resources"
+        },
+        {
+          "milestone": 20,
+          "reward": "Digital Badge",
+          "description": "Show off your commitment with an exclusive digital badge"
+        },
+        {
+          "milestone": 40,
+          "reward": "Hostel Room Priority",
+          "description": "Get priority selection for hostel room upgrades"
+        },
+        {
+          "milestone": 60,
+          "reward": "Certificate of Excellence",
+          "description": "Official recognition certificate from the institution"
+        }
+      ]
+    }
+  ],
+  "admins": [
+    {
+      "id": "admin1",
+      "role": "admin",
+      "firstName": "David",
+      "lastName": "Kamau",
+      "email": "admin@coasttech.ac.ke",
+      "institutionId": "inst1",
+      "password": "admin123"
     }
   ],
   "users": [
@@ -42,8 +75,30 @@
       "lastName": "Amin",
       "email": "fatima.amin@student.coasttech.ac.ke",
       "institutionId": "inst1",
-      "classIds": ["class1", "class2"],
-      "password": "student123"
+      "classIds": [
+        "class1",
+        "class2"
+      ],
+      "password": "student123",
+      "department": "Computer Science",
+      "selectedUnits": [
+        "u1",
+        "u2",
+        "u3",
+        "u4",
+        "u5"
+      ],
+      "goals": [
+        "Attend all classes",
+        "Maintain 80% attendance",
+        "Complete assignments on time"
+      ],
+      "motivationalTone": "encouraging",
+      "streak": 15,
+      "graceUnitsRemaining": 2,
+      "graceUnitsTotal": 2,
+      "totalClasses": 45,
+      "attendedClasses": 42
     },
     {
       "id": "s2",
@@ -52,8 +107,28 @@
       "lastName": "Kiptoo",
       "email": "james.kiptoo@student.coasttech.ac.ke",
       "institutionId": "inst1",
-      "classIds": ["class1", "class3"],
-      "password": "student123"
+      "classIds": [
+        "class1",
+        "class3"
+      ],
+      "password": "student123",
+      "department": "Computer Science",
+      "selectedUnits": [
+        "u1",
+        "u2",
+        "u11",
+        "u12"
+      ],
+      "goals": [
+        "Never miss a class",
+        "Improve programming skills"
+      ],
+      "motivationalTone": "gentle",
+      "streak": 8,
+      "graceUnitsRemaining": 1,
+      "graceUnitsTotal": 2,
+      "totalClasses": 30,
+      "attendedClasses": 28
     },
     {
       "id": "s3",
@@ -62,8 +137,28 @@
       "lastName": "Wachira",
       "email": "lillian.wachira@student.coasttech.ac.ke",
       "institutionId": "inst1",
-      "classIds": ["class2", "class3"],
-      "password": "student123"
+      "classIds": [
+        "class2",
+        "class3"
+      ],
+      "password": "student123",
+      "department": "Computer Science",
+      "selectedUnits": [
+        "u6",
+        "u7",
+        "u11",
+        "u12"
+      ],
+      "goals": [
+        "Stay consistent",
+        "Build good habits"
+      ],
+      "motivationalTone": "supportive",
+      "streak": 22,
+      "graceUnitsRemaining": 2,
+      "graceUnitsTotal": 2,
+      "totalClasses": 50,
+      "attendedClasses": 48
     },
     {
       "id": "s4",
@@ -72,8 +167,28 @@
       "lastName": "Hussein",
       "email": "mohamed.hussein@student.coasttech.ac.ke",
       "institutionId": "inst1",
-      "classIds": ["class1", "class3"],
-      "password": "student123"
+      "classIds": [
+        "class1",
+        "class3"
+      ],
+      "password": "student123",
+      "department": "Computer Science",
+      "selectedUnits": [
+        "u1",
+        "u3",
+        "u11",
+        "u13"
+      ],
+      "goals": [
+        "Focus on attendance",
+        "Graduate with honors"
+      ],
+      "motivationalTone": "motivating",
+      "streak": 5,
+      "graceUnitsRemaining": 2,
+      "graceUnitsTotal": 2,
+      "totalClasses": 28,
+      "attendedClasses": 25
     },
     {
       "id": "s5",
@@ -82,8 +197,28 @@
       "lastName": "Njoroge",
       "email": "rose.njoroge@student.coasttech.ac.ke",
       "institutionId": "inst1",
-      "classIds": ["class2", "class3"],
-      "password": "student123"
+      "classIds": [
+        "class2",
+        "class3"
+      ],
+      "password": "student123",
+      "department": "Computer Science",
+      "selectedUnits": [
+        "u6",
+        "u8",
+        "u11",
+        "u14"
+      ],
+      "goals": [
+        "Be present",
+        "Learn actively"
+      ],
+      "motivationalTone": "calm",
+      "streak": 12,
+      "graceUnitsRemaining": 1,
+      "graceUnitsTotal": 2,
+      "totalClasses": 35,
+      "attendedClasses": 33
     }
   ],
   "semesters": [
@@ -140,91 +275,456 @@
     }
   ],
   "units": [
-    { "id": "u1",  "classId": "class1", "name": "Programming 101",           "teacherId": "t1" },
-    { "id": "u2",  "classId": "class1", "name": "Discrete Mathematics",     "teacherId": "t1" },
-    { "id": "u3",  "classId": "class1", "name": "Computer Systems",         "teacherId": "t1" },
-    { "id": "u4",  "classId": "class1", "name": "Databases",                "teacherId": "t1" },
-    { "id": "u5",  "classId": "class1", "name": "Networks",                 "teacherId": "t1" },
-
-    { "id": "u6",  "classId": "class2", "name": "Programming 101",           "teacherId": "t2" },
-    { "id": "u7",  "classId": "class2", "name": "Mathematics for CS",       "teacherId": "t2" },
-    { "id": "u8",  "classId": "class2", "name": "Operating Systems",        "teacherId": "t2" },
-    { "id": "u9",  "classId": "class2", "name": "Introduction to AI",       "teacherId": "t2" },
-    { "id": "u10", "classId": "class2", "name": "Data Structures",          "teacherId": "t2" },
-
-    { "id": "u11", "classId": "class3", "name": "Advanced Programming",     "teacherId": "t3" },
-    { "id": "u12", "classId": "class3", "name": "Algorithms",               "teacherId": "t3" },
-    { "id": "u13", "classId": "class3", "name": "Software Engineering",     "teacherId": "t3" },
-    { "id": "u14", "classId": "class3", "name": "Database Systems",         "teacherId": "t3" },
-    { "id": "u15", "classId": "class3", "name": "Computer Networks II",     "teacherId": "t3" },
-
-    { "id": "u16", "classId": "class4", "name": "Networking Basics",        "teacherId": "t1" },
-    { "id": "u17", "classId": "class4", "name": "ICT Fundamentals",         "teacherId": "t1" },
-    { "id": "u18", "classId": "class4", "name": "Web Development",          "teacherId": "t1" },
-    { "id": "u19", "classId": "class4", "name": "Database Fundamentals",    "teacherId": "t1" },
-    { "id": "u20", "classId": "class4", "name": "System Administration",    "teacherId": "t1" },
-
-    { "id": "u21", "classId": "class5", "name": "ICT Fundamentals",         "teacherId": "t2" },
-    { "id": "u22", "classId": "class5", "name": "Computer Maintenance",     "teacherId": "t2" },
-    { "id": "u23", "classId": "class5", "name": "Web Design",               "teacherId": "t2" },
-    { "id": "u24", "classId": "class5", "name": "Introduction to Programming", "teacherId": "t2" },
-    { "id": "u25", "classId": "class5", "name": "User Support & Services",  "teacherId": "t2" },
-
-    { "id": "u26", "classId": "class6", "name": "Advanced ICT Systems",     "teacherId": "t3" },
-    { "id": "u27", "classId": "class6", "name": "Network Security",         "teacherId": "t3" },
-    { "id": "u28", "classId": "class6", "name": "Cloud Computing",          "teacherId": "t3" },
-    { "id": "u29", "classId": "class6", "name": "Data Centers",             "teacherId": "t3" },
-    { "id": "u30", "classId": "class6", "name": "Systems Integration",      "teacherId": "t3" }
+    {
+      "id": "u1",
+      "classId": "class1",
+      "name": "Programming 101",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u2",
+      "classId": "class1",
+      "name": "Discrete Mathematics",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u3",
+      "classId": "class1",
+      "name": "Computer Systems",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u4",
+      "classId": "class1",
+      "name": "Databases",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u5",
+      "classId": "class1",
+      "name": "Networks",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u6",
+      "classId": "class2",
+      "name": "Programming 101",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u7",
+      "classId": "class2",
+      "name": "Mathematics for CS",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u8",
+      "classId": "class2",
+      "name": "Operating Systems",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u9",
+      "classId": "class2",
+      "name": "Introduction to AI",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u10",
+      "classId": "class2",
+      "name": "Data Structures",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u11",
+      "classId": "class3",
+      "name": "Advanced Programming",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u12",
+      "classId": "class3",
+      "name": "Algorithms",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u13",
+      "classId": "class3",
+      "name": "Software Engineering",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u14",
+      "classId": "class3",
+      "name": "Database Systems",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u15",
+      "classId": "class3",
+      "name": "Computer Networks II",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u16",
+      "classId": "class4",
+      "name": "Networking Basics",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u17",
+      "classId": "class4",
+      "name": "ICT Fundamentals",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u18",
+      "classId": "class4",
+      "name": "Web Development",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u19",
+      "classId": "class4",
+      "name": "Database Fundamentals",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u20",
+      "classId": "class4",
+      "name": "System Administration",
+      "teacherId": "t1"
+    },
+    {
+      "id": "u21",
+      "classId": "class5",
+      "name": "ICT Fundamentals",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u22",
+      "classId": "class5",
+      "name": "Computer Maintenance",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u23",
+      "classId": "class5",
+      "name": "Web Design",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u24",
+      "classId": "class5",
+      "name": "Introduction to Programming",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u25",
+      "classId": "class5",
+      "name": "User Support & Services",
+      "teacherId": "t2"
+    },
+    {
+      "id": "u26",
+      "classId": "class6",
+      "name": "Advanced ICT Systems",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u27",
+      "classId": "class6",
+      "name": "Network Security",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u28",
+      "classId": "class6",
+      "name": "Cloud Computing",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u29",
+      "classId": "class6",
+      "name": "Data Centers",
+      "teacherId": "t3"
+    },
+    {
+      "id": "u30",
+      "classId": "class6",
+      "name": "Systems Integration",
+      "teacherId": "t3"
+    }
   ],
   "timetable": [
     {
       "classId": "class1",
       "day": "Monday",
       "periods": [
-        { "period": 1, "unitId": "u1",  "startTime": "08:00", "endTime": "09:00" },
-        { "period": 2, "unitId": "u2",  "startTime": "09:15", "endTime": "10:15" },
-        { "period": 3, "unitId": "u3",  "startTime": "10:30", "endTime": "11:30" }
+        {
+          "period": 1,
+          "unitId": "u1",
+          "startTime": "08:00",
+          "endTime": "09:00"
+        },
+        {
+          "period": 2,
+          "unitId": "u2",
+          "startTime": "09:15",
+          "endTime": "10:15"
+        },
+        {
+          "period": 3,
+          "unitId": "u3",
+          "startTime": "10:30",
+          "endTime": "11:30"
+        }
       ]
     },
     {
       "classId": "class2",
       "day": "Tuesday",
       "periods": [
-        { "period": 1, "unitId": "u6",  "startTime": "08:00", "endTime": "09:00" },
-        { "period": 2, "unitId": "u7",  "startTime": "09:15", "endTime": "10:15" }
+        {
+          "period": 1,
+          "unitId": "u6",
+          "startTime": "08:00",
+          "endTime": "09:00"
+        },
+        {
+          "period": 2,
+          "unitId": "u7",
+          "startTime": "09:15",
+          "endTime": "10:15"
+        }
       ]
     },
     {
       "classId": "class3",
       "day": "Wednesday",
       "periods": [
-        { "period": 1, "unitId": "u11", "startTime": "10:00", "endTime": "11:00" },
-        { "period": 2, "unitId": "u12", "startTime": "11:15", "endTime": "12:15" }
+        {
+          "period": 1,
+          "unitId": "u11",
+          "startTime": "10:00",
+          "endTime": "11:00"
+        },
+        {
+          "period": 2,
+          "unitId": "u12",
+          "startTime": "11:15",
+          "endTime": "12:15"
+        }
       ]
     },
     {
       "classId": "class4",
       "day": "Thursday",
       "periods": [
-        { "period": 1, "unitId": "u16", "startTime": "08:00", "endTime": "09:00" },
-        { "period": 2, "unitId": "u17", "startTime": "09:15", "endTime": "10:15" }
+        {
+          "period": 1,
+          "unitId": "u16",
+          "startTime": "08:00",
+          "endTime": "09:00"
+        },
+        {
+          "period": 2,
+          "unitId": "u17",
+          "startTime": "09:15",
+          "endTime": "10:15"
+        }
       ]
     },
     {
       "classId": "class5",
       "day": "Friday",
       "periods": [
-        { "period": 1, "unitId": "u21", "startTime": "08:00", "endTime": "09:00" },
-        { "period": 2, "unitId": "u22", "startTime": "09:15", "endTime": "10:15" }
+        {
+          "period": 1,
+          "unitId": "u21",
+          "startTime": "08:00",
+          "endTime": "09:00"
+        },
+        {
+          "period": 2,
+          "unitId": "u22",
+          "startTime": "09:15",
+          "endTime": "10:15"
+        }
       ]
     },
     {
       "classId": "class6",
       "day": "Monday",
       "periods": [
-        { "period": 1, "unitId": "u26", "startTime": "10:00", "endTime": "11:00" },
-        { "period": 2, "unitId": "u27", "startTime": "11:15", "endTime": "12:15" }
+        {
+          "period": 1,
+          "unitId": "u26",
+          "startTime": "10:00",
+          "endTime": "11:00"
+        },
+        {
+          "period": 2,
+          "unitId": "u27",
+          "startTime": "11:15",
+          "endTime": "12:15"
+        }
       ]
+    }
+  ],
+  "attendance": [
+    {
+      "id": "att1",
+      "studentId": "s1",
+      "unitId": "u1",
+      "classId": "class1",
+      "date": "2025-12-08",
+      "time": "08:45",
+      "status": "present",
+      "qrSessionId": "qr1"
+    },
+    {
+      "id": "att2",
+      "studentId": "s2",
+      "unitId": "u1",
+      "classId": "class1",
+      "date": "2025-12-08",
+      "time": "08:47",
+      "status": "present",
+      "qrSessionId": "qr1"
+    },
+    {
+      "studentId": "s1",
+      "qrCode": "QR-u1-20251210-0830",
+      "timestamp": "2025-12-10T16:37:10.205Z",
+      "id": "QdD9P2Q"
+    }
+  ],
+  "qrSessions": [
+    {
+      "id": "qr1",
+      "unitId": "u1",
+      "classId": "class1",
+      "teacherId": "t1",
+      "date": "2025-12-08",
+      "startTime": "08:30",
+      "endTime": "09:00",
+      "qrCode": "QR-u1-20251208-0830",
+      "active": false
+    },
+    {
+      "id": "qr2",
+      "unitId": "u1",
+      "classId": "class1",
+      "teacherId": "t1",
+      "date": "2025-12-10",
+      "startTime": "08:30",
+      "endTime": "09:00",
+      "qrCode": "QR-u1-20251210-0830",
+      "active": true
+    }
+  ],
+  "moodCheckins": [
+    {
+      "id": "mood1",
+      "studentId": "s1",
+      "date": "2025-12-10",
+      "mood": "happy",
+      "energy": 8,
+      "stress": 3,
+      "notes": "Feeling good about today's class"
+    },
+    {
+      "id": "mood2",
+      "studentId": "s1",
+      "date": "2025-12-09",
+      "mood": "calm",
+      "energy": 7,
+      "stress": 4,
+      "notes": ""
+    }
+  ],
+  "chatbotSessions": [
+    {
+      "id": "chat1",
+      "studentId": "s1",
+      "date": "2025-12-10",
+      "messages": [
+        {
+          "role": "bot",
+          "content": "Hi Fatima! How are you feeling today?",
+          "timestamp": "2025-12-10T10:00:00Z"
+        },
+        {
+          "role": "user",
+          "content": "I'm feeling a bit anxious about exams",
+          "timestamp": "2025-12-10T10:01:00Z"
+        },
+        {
+          "role": "bot",
+          "content": "It's completely normal to feel anxious before exams. Let's try a quick breathing exercise. Breathe in for 4 counts, hold for 4, and exhale for 4. Would you like to try?",
+          "timestamp": "2025-12-10T10:01:30Z",
+          "suggestedTask": {
+            "type": "breathing",
+            "title": "4-4-4 Breathing",
+            "duration": 120
+          }
+        }
+      ]
+    }
+  ],
+  "cbtTasks": [
+    {
+      "id": "cbt1",
+      "type": "breathing",
+      "title": "Box Breathing",
+      "description": "Breathe in for 4 seconds, hold for 4, exhale for 4, hold for 4. Repeat 4 times.",
+      "duration": 120,
+      "category": "anxiety"
+    },
+    {
+      "id": "cbt2",
+      "type": "gratitude",
+      "title": "Three Good Things",
+      "description": "Write down three things that went well today and why.",
+      "duration": 300,
+      "category": "mood"
+    },
+    {
+      "id": "cbt3",
+      "type": "grounding",
+      "title": "5-4-3-2-1 Grounding",
+      "description": "Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste.",
+      "duration": 180,
+      "category": "anxiety"
+    },
+    {
+      "id": "cbt4",
+      "type": "affirmation",
+      "title": "Positive Affirmations",
+      "description": "Repeat: 'I am capable. I am worthy. I am doing my best.'",
+      "duration": 60,
+      "category": "confidence"
+    }
+  ],
+  "weeklyReports": [
+    {
+      "id": "report1",
+      "studentId": "s1",
+      "weekStart": "2025-12-02",
+      "weekEnd": "2025-12-08",
+      "attendanceRate": 95,
+      "classesAttended": 19,
+      "totalClasses": 20,
+      "streakMaintained": true,
+      "moodAverage": 7.5,
+      "energyAverage": 7.8,
+      "stressAverage": 3.2,
+      "achievements": [
+        "Maintained streak",
+        "Attended all morning classes"
+      ],
+      "encouragement": "You're doing wonderfully! Your consistency is impressive."
     }
   ]
 }

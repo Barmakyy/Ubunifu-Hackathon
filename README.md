@@ -1,67 +1,70 @@
-# Student Accountability App (StudySync)
+# AttendWell - Student Attendance & Wellness Platform
 
-A comprehensive MERN stack application designed to help students stay accountable with their academic commitments through personalized reminders, streak tracking, and motivational support.
+A comprehensive student attendance tracking system with mental health support, built with Vite, React, Tailwind CSS v4, and JSON Server.
 
-## 🚀 Features
+## 🌟 Features
 
-### User Experience
+### Student Dashboard
 
-- **Personalized Signup Flow**: Collect student info, goals, study preferences, and motivation style
-- **Smart Dashboard**: Today's classes, tasks, streaks, and motivational greetings
-- **Timetable Management**: Upload CSV or manually add classes, exams, and events
-- **Automated Reminders**: 30-min, 10-min, and at-start class reminders
-- **Attendance Tracking**: Mark attendance, auto-mark missed classes, get motivational feedback
-- **Task Management**: Create, track, and complete tasks with priorities
-- **Goal Setting**: Set semester goals with progress tracking
-- **Streak System**: Track attendance and task completion streaks with badges
-- **AI Chatbot**: Emotional support and accountability coaching
-- **Weekly Reports**: Auto-generated progress summaries every Sunday
+- **Streak Ring Visualization**: Beautiful circular progress showing attendance streak with milestone tracking
+- **Grace Units System**: 2 monthly grace units to preserve streaks when life happens
+- **Today's Schedule**: Clear view of all classes with attendance status
+- **QR Code Scanning**: Animated scanner with confetti celebration on success
+- **Institutional Rewards**: Progressive rewards at 10, 20, 40, and 60-day milestones
+- **Emotional Companion Chatbot**: CBT-lite micro-tasks, mood tracking, and supportive messaging
+- **Weekly Reports**: Gentle analytics with emotional check-ins
+- **Customizable Tone**: Choose from encouraging, gentle, motivating, supportive, or calm messaging
 
-### Technical Stack
+### Lecturer Dashboard
 
-- **Frontend**: React 18 + Vite
-- **Styling**: Tailwind CSS v4
-- **Backend**: Node.js + Express
-- **Database**: MongoDB
-- **Authentication**: JWT
-- **Scheduling**: node-cron
-- **Package Manager**: pnpm
+- **Today's Class List**: Real-time enrollment and presence tracking
+- **Auto-generated QR Codes**: Available 30 minutes before class ends
+- **Attendance Statistics**: Comprehensive stats and downloadable reports
+- **Simple Interface**: Clean, non-intrusive design
 
-## 📁 Project Structure
+### Admin Panel
 
-```
-Ubunifu Hackathon/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/    # Reusable components
-│   │   ├── pages/         # Page components
-│   │   ├── store/         # Zustand state management
-│   │   ├── utils/         # API and utilities
-│   │   ├── App.jsx        # Main app component
-│   │   └── main.jsx       # Entry point
-│   ├── package.json
-│   └── vite.config.js
-│
-└── server/                # Express backend
-    ├── models/            # MongoDB schemas
-    ├── routes/            # API routes
-    ├── services/          # Business logic
-    ├── middleware/        # Auth middleware
-    ├── server.js          # Entry point
-    └── package.json
-```
+- **Institution-wide Overview**: Complete stats dashboard
+- **Timetable Upload System**: CSV-based timetable management
+- **Lecturer Management**: Add and manage teaching staff
+- **Customizable Rewards**: Define and manage reward milestones
+- **Attendance Heatmap**: Visual analytics across the institution
 
-## 🛠️ Installation
+## 🎨 Design Features
+
+- **Mental Health-Safe Color Palette**:
+
+  - Sage Green (#5a925a) - Calming and growth
+  - Coral Peach (#e56b5a) - Warm and encouraging
+  - Soft Violet (#8c6ac0) - Peaceful and creative
+  - Dusty Blue (#7099bd) - Stable and trustworthy
+  - Cream (#cdb68d) - Warm and comforting
+
+- **Supportive Micro-copy**:
+
+  - "You showed up. That counts."
+  - "Your streak is your story, not your stress"
+  - No shaming or red danger UI
+
+- **Smooth Animations**:
+
+  - Confetti effects on attendance success
+  - Gentle pulse animations
+  - Smooth transitions throughout
+
+- **Gender-neutral Visuals**: Inclusive design for all students
+- **Rounded Edges**: Soft, approachable interface
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- MongoDB (local or Atlas)
-- pnpm (`npm install -g pnpm`)
+- pnpm (or npm/yarn)
 
 ### Backend Setup
 
-1. Navigate to server directory:
+1. Navigate to the server directory:
 
 ```powershell
 cd server
@@ -73,40 +76,17 @@ cd server
 pnpm install
 ```
 
-3. Create `.env` file:
+3. Start the JSON server:
 
 ```powershell
-Copy-Item .env.example .env
+pnpm start
 ```
 
-4. Edit `.env` and configure:
-
-```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/student-accountability
-JWT_SECRET=your_secret_key_here
-OPENAI_API_KEY=your_openai_key_here (optional)
-NODE_ENV=development
-```
-
-5. Start MongoDB (if local):
-
-```powershell
-# Start MongoDB service
-net start MongoDB
-```
-
-6. Start the server:
-
-```powershell
-pnpm dev
-```
-
-Server will run on http://localhost:5000
+The server will run on `http://localhost:8000`
 
 ### Frontend Setup
 
-1. Open a new terminal and navigate to client directory:
+1. Navigate to the client directory:
 
 ```powershell
 cd client
@@ -124,206 +104,115 @@ pnpm install
 pnpm dev
 ```
 
-Client will run on http://localhost:3000
+The app will run on `http://localhost:5173`
 
-## 🎯 Usage
+## 👤 Demo Credentials
 
-### First Time Setup
+### Student Account
 
-1. Open http://localhost:3000
-2. Click "Sign up"
-3. Complete the 3-step onboarding:
-   - **Step 1**: Basic info (name, email, password)
-   - **Step 2**: Academic details (institution, course, year, goals)
-   - **Step 3**: Preferences (study time, motivation style)
+- Email: `fatima@student.coasttech.ac.ke`
+- Password: any password
+- Features: Full student dashboard with all features
 
-### Adding Your Timetable
+### Lecturer Account
 
-**Option 1: CSV Upload**
+- Email: `anne@coasttech.ac.ke`
+- Password: any password
+- Features: Class management and QR code generation
 
-- Create a CSV with columns: `title,type,dayOfWeek,startTime,endTime,location,instructor,course`
-- Example:
-  ```csv
-  title,type,dayOfWeek,startTime,endTime,location,instructor,course
-  Data Structures,class,1,09:00,11:00,Room 101,Dr. Smith,CS201
-  Algorithms,class,3,14:00,16:00,Room 205,Prof. Johnson,CS301
-  ```
-- Upload via Timetable page
+### Admin Account
 
-**Option 2: Manual Entry**
+- Email: `admin@coasttech.ac.ke`
+- Password: any password
+- Features: Institution-wide management
 
-- Click "Add Entry" on Timetable page
-- Fill in details and save
+## 🎯 Role Switcher
 
-### Daily Workflow
+Use the role switcher in the top-right corner of the sidebar to demo all three views (student, lecturer, admin).
 
-1. **Morning**: Check dashboard for today's classes and tasks
-2. **Before Class**: Receive reminders (30-min, 10-min, at-start)
-3. **After Class**: Mark attendance (attended/missed)
-4. **Throughout Day**: Complete tasks, update progress
-5. **Evening**: Check streak status, chat with bot if needed
+## 📂 Project Structure
 
-### Using the Chatbot
-
-Navigate to Chatbot page and share:
-
-- "I'm feeling stressed"
-- "I'm behind on my work"
-- "I need motivation"
-
-The bot responds based on your chosen motivation style.
-
-## 📊 API Endpoints
-
-### Authentication
-
-- `POST /api/auth/signup` - Create account
-- `POST /api/auth/login` - Login
-
-### User
-
-- `GET /api/user/profile` - Get profile
-- `PUT /api/user/profile` - Update profile
-
-### Timetable
-
-- `GET /api/timetable` - Get all entries
-- `POST /api/timetable` - Create entry
-- `POST /api/timetable/upload-csv` - Upload CSV
-- `PUT /api/timetable/:id` - Update entry
-- `DELETE /api/timetable/:id` - Delete entry
-
-### Attendance
-
-- `GET /api/attendance` - Get attendance records
-- `GET /api/attendance/today` - Get today's classes
-- `POST /api/attendance/mark` - Mark attendance
-- `GET /api/attendance/stats` - Get statistics
-
-### Tasks
-
-- `GET /api/tasks` - Get all tasks
-- `GET /api/tasks/today` - Get today's tasks
-- `POST /api/tasks` - Create task
-- `PUT /api/tasks/:id` - Update task
-- `DELETE /api/tasks/:id` - Delete task
-
-### Goals
-
-- `GET /api/goals` - Get all goals
-- `POST /api/goals` - Create goal
-- `PUT /api/goals/:id` - Update goal
-- `DELETE /api/goals/:id` - Delete goal
-
-### Streak
-
-- `GET /api/streak` - Get user streaks
-
-### Chatbot
-
-- `POST /api/chatbot/message` - Send message
-
-### Reports
-
-- `GET /api/reports` - Get all reports
-- `GET /api/reports/latest` - Get latest report
-
-## 🔄 Automated Services
-
-### Reminder Service
-
-- Runs every minute via cron job
-- Sends reminders 30min, 10min, and at class start
-- Auto-marks missed classes 60min after start
-
-### Weekly Report Service
-
-- Runs every Sunday at 6 PM
-- Generates comprehensive progress report
-- Includes attendance, tasks, goals, and suggestions
-
-## 🎨 Customization
-
-### Motivation Styles
-
-- **Friendly**: Warm, encouraging, supportive
-- **Strict**: Direct, disciplined, focused
-- **Chill**: Relaxed, casual, low-pressure
-- **Hype**: Energetic, enthusiastic, pumped
-
-### Study Preferences
-
-- Morning, Night, Weekend, Flexible
-
-## 🔒 Security
-
-- Passwords hashed with bcrypt
-- JWT authentication
-- HTTP-only cookies (recommended for production)
-- Input validation and sanitization
-
-## 🚀 Production Deployment
-
-### Environment Variables
-
-Update `.env` for production:
-
-- Use strong JWT_SECRET
-- Configure production MongoDB URI
-- Set NODE_ENV=production
-
-### Build Frontend
-
-```powershell
-cd client
-pnpm build
+```
+├── client/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── EnhancedLayout.jsx       # Layout with role switcher
+│   │   ├── pages/
+│   │   │   ├── Login.jsx                # Login page
+│   │   │   ├── Signup.jsx               # Multi-step signup
+│   │   │   ├── StudentDashboard.jsx     # Student home
+│   │   │   ├── QRScanner.jsx            # QR scanning with animations
+│   │   │   ├── Rewards.jsx              # Rewards progress
+│   │   │   ├── EmotionalChatbot.jsx     # AI companion
+│   │   │   ├── LecturerDashboard.jsx    # Lecturer view
+│   │   │   └── AdminDashboard.jsx       # Admin panel
+│   │   ├── store/
+│   │   │   └── authStore.js             # Authentication state
+│   │   ├── utils/
+│   │   │   └── api.js                   # API utilities
+│   │   ├── App.jsx                      # Main app component
+│   │   └── index.css                    # Tailwind CSS v4 config
+│   └── package.json
+├── server/
+│   ├── db.json                          # Database
+│   ├── index.js                         # Server setup
+│   └── package.json
+└── README.md
 ```
 
-Serve `dist` folder with Express or deploy to Vercel/Netlify.
+## 🛠️ Tech Stack
 
-### Backend Deployment
+- **Frontend**:
 
-Deploy to Heroku, Railway, or any Node.js host.
+  - React 18
+  - Vite 5
+  - Tailwind CSS v4
+  - React Router DOM
+  - Zustand (State Management)
+  - React Hot Toast (Notifications)
+  - Lucide React (Icons)
 
-## 📝 CSV Timetable Format
+- **Backend**:
+  - JSON Server
+  - CORS enabled
 
-```csv
-title,type,dayOfWeek,startTime,endTime,location,instructor,course
-Programming,class,1,09:00,11:00,Lab 1,Dr. Brown,CS101
-Math Lecture,class,2,14:00,15:30,Hall A,Prof. White,MATH201
-Midterm Exam,exam,5,10:00,12:00,Main Hall,Various,CS101
-Club Meeting,event,3,16:00,17:00,Room 10,,,
-```
+## 🎨 Color Customization
 
-**Notes:**
+The mental health-safe color palette is defined in `client/src/index.css` using Tailwind CSS v4's `@theme` directive. You can customize colors by modifying the CSS custom properties.
 
-- `dayOfWeek`: 0=Sunday, 1=Monday, ... 6=Saturday
-- `type`: class, exam, event
-- `startTime/endTime`: 24-hour format (HH:MM)
+## 📱 Responsive Design
 
-## 🐛 Troubleshooting
+The application is fully responsive and works on:
 
-### MongoDB Connection Error
+- Desktop (1024px+)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
 
-- Ensure MongoDB is running
-- Check MONGODB_URI in `.env`
-- Verify network connectivity
+## 🔐 Security Notes
 
-### Port Already in Use
+This is a demo application. In production:
 
-- Change PORT in server `.env`
-- Update proxy in client `vite.config.js`
+- Implement proper authentication with JWT tokens
+- Hash passwords with bcrypt
+- Use HTTPS
+- Implement rate limiting
+- Add input validation and sanitization
+- Use environment variables for sensitive data
 
-### Frontend Not Connecting to Backend
+## 🤝 Contributing
 
-- Ensure both servers are running
-- Check proxy configuration
-- Verify API base URL
+This project was created for the Ubunifu Hackathon. Feel free to fork and enhance!
 
 ## 📄 License
 
-MIT License - feel free to use for your hackathon or personal projects!
+MIT License - feel free to use this project for learning and development.
 
 ## 🙏 Acknowledgments
 
-Built for Ubunifu Hackathon with ❤️ using MERN stack and Tailwind CSS v4.
+- Inspired by mental health-first design principles
+- Built with care for student wellbeing
+- Designed to reduce academic stress and anxiety
+
+---
+
+**Remember**: Your streak is your story, not your stress. Every day you show up counts. 🌟
