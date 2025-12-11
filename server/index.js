@@ -11,8 +11,7 @@ const corsOptions = {
   origin: [
     'http://localhost:5173',
     'http://localhost:3000',
-    // Add your Vercel URL after deployment
-    // 'https://your-project.vercel.app'
+    'https://ubunifu-hackathon.vercel.app'
   ],
   credentials: true,
   optionsSuccessStatus: 200
