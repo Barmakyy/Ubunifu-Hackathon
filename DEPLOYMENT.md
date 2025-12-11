@@ -103,10 +103,17 @@ If you don't want to use GitHub:
 3. **Configure Project**:
 
    - **Framework Preset**: Vite
-   - **Root Directory**: `client`
-   - **Build Command**: `pnpm run build`
-   - **Output Directory**: `dist`
-   - **Install Command**: `pnpm install`
+   - **Root Directory**: `client` (Click "Edit" and set this)
+   - **Build Command**: `cd client && pnpm install && pnpm run build`
+   - **Output Directory**: `client/dist`
+   - **Install Command**: Leave empty or `pnpm install`
+
+   **Alternative if above doesn't work:**
+
+   - **Root Directory**: Leave as `.` (project root)
+   - **Build Command**: `cd client && pnpm install && pnpm run build`
+   - **Output Directory**: `client/dist`
+   - **Install Command**: `cd client && pnpm install`
 
 4. **Environment Variables**:
 
