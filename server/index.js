@@ -20,6 +20,20 @@ const corsOptions = {
 server.use(cors(corsOptions))
 server.use(jsonServer.bodyParser)
 server.use(middlewares)
+
+// Custom routes - must come before router
+server.get('/reports', (req, res) => {
+  const db = router.db
+  res.json(db.get('weeklyReports').value())
+})
+
+server.get('/reports/latest', (req, res) => {
+  const db = router.db
+  const reports = db.get('weeklyReports').value()
+  const latestReport = reports.length > 0 ? reports[reports.length - 1] : null
+  res.json(latestReport)
+})
+
 server.use(router)
 
 const PORT = process.env.PORT || 8000

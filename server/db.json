@@ -727,6 +727,18 @@
       "endTime": "03:16",
       "active": true,
       "scans": 0
+    },
+    {
+      "id": "qr-1765445888364",
+      "qrCode": "QR-u16-20251211-1238",
+      "classId": "class4",
+      "unitId": "u16",
+      "teacherId": "t1",
+      "date": "2025-12-11",
+      "time": "12:38",
+      "endTime": "13:08",
+      "active": true,
+      "scans": 0
     }
   ],
   "moodCheckins": [

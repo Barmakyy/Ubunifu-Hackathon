@@ -40,7 +40,7 @@ function EnhancedLayout() {
     <div className="min-h-screen bg-gradient-to-br from-sage-50 via-cream-50 to-violet-50">
       {/* Mobile menu button */}
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-white shadow-lg z-50 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between rounded-b-xl sm:rounded-b-2xl">
-        <h1 className="text-lg sm:text-xl font-bold text-sage-600">AttendWell</h1>
+        <h1 className="text-lg sm:text-xl font-bold text-sage-600">MySajili</h1>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="p-1.5 sm:p-2 rounded-lg hover:bg-sage-50 transition-colors active:bg-sage-100"
@@ -59,7 +59,7 @@ function EnhancedLayout() {
       `}>
         {/* Header */}
         <div className="py-6 px-4 border-b border-gray-200">
-          <h1 className="text-xl font-bold text-gray-800 mb-1">AttendWell</h1>
+          <h1 className="text-xl font-bold text-gray-800 mb-1">MySajili</h1>
           <p className="text-xs text-gray-500">Hello, {user?.firstName}!</p>
         </div>
 
