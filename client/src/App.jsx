@@ -14,8 +14,17 @@ import EmotionalChatbot from './pages/EmotionalChatbot';
 import Reports from './pages/Reports';
 import QRScanner from './pages/QRScanner';
 import Rewards from './pages/Rewards';
+import MyClasses from './pages/MyClasses';
+import AttendanceHistory from './pages/AttendanceHistory';
+import Notifications from './pages/Notifications';
 import LecturerDashboard from './pages/LecturerDashboard';
+import LecturerClasses from './pages/LecturerClasses';
+import LecturerTimetable from './pages/LecturerTimetable';
+import LecturerAnalytics from './pages/LecturerAnalytics';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminStudents from './pages/AdminStudents';
+import AdminLecturers from './pages/AdminLecturers';
+import AdminRewards from './pages/AdminRewards';
 
 // Layout
 import EnhancedLayout from './components/EnhancedLayout';
@@ -55,6 +64,8 @@ function App() {
           {user?.role === 'student' && (
             <>
               <Route index element={<StudentDashboard />} />
+              <Route path="classes" element={<MyClasses />} />
+              <Route path="attendance" element={<AttendanceHistory />} />
               <Route path="timetable" element={<Timetable />} />
               <Route path="tasks" element={<Tasks />} />
               <Route path="goals" element={<Goals />} />
@@ -63,6 +74,7 @@ function App() {
               <Route path="reports" element={<Reports />} />
               <Route path="scan" element={<QRScanner />} />
               <Route path="rewards" element={<Rewards />} />
+              <Route path="notifications" element={<Notifications />} />
             </>
           )}
           
@@ -70,6 +82,9 @@ function App() {
           {user?.role === 'teacher' && (
             <>
               <Route index element={<LecturerDashboard />} />
+              <Route path="classes" element={<LecturerClasses />} />
+              <Route path="timetable" element={<LecturerTimetable />} />
+              <Route path="analytics" element={<LecturerAnalytics />} />
               <Route path="profile" element={<Profile />} />
             </>
           )}
@@ -78,6 +93,9 @@ function App() {
           {user?.role === 'admin' && (
             <>
               <Route index element={<AdminDashboard />} />
+              <Route path="students" element={<AdminStudents />} />
+              <Route path="lecturers" element={<AdminLecturers />} />
+              <Route path="rewards-admin" element={<AdminRewards />} />
               <Route path="profile" element={<Profile />} />
             </>
           )}

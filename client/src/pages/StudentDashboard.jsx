@@ -55,44 +55,44 @@ export default function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">
         {/* Simple Greeting Section */}
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
-          <h1 className="text-2xl font-bold text-gray-900 mb-1">{getGreeting()}</h1>
-          <p className="text-gray-600">Track your attendance and maintain your streak</p>
+        <div className="bg-white rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
+          <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-1">{getGreeting()}</h1>
+          <p className="text-sm sm:text-base text-gray-600">Track your attendance and maintain your streak</p>
         </div>
 
         {/* Main Grid */}
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Simple Streak Card */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
-              <div className="flex items-center gap-2 mb-6">
-                <Flame className="text-orange-500" size={20} />
-                <h2 className="text-lg font-semibold text-gray-900">Your Streak</h2>
+            <div className="bg-white rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
+              <div className="flex items-center gap-2 mb-4 sm:mb-6">
+                <Flame className="text-orange-500" size={18} />
+                <h2 className="text-base sm:text-lg font-semibold text-gray-900">Your Streak</h2>
               </div>
               
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-orange-50 border-4 border-orange-200 mb-3">
+              <div className="text-center mb-4 sm:mb-6">
+                <div className="inline-flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full bg-orange-50 border-4 border-orange-200 mb-3">
                   <div className="text-center">
-                    <div className="text-4xl font-bold text-orange-600">{user?.streak || 0}</div>
-                    <div className="text-xs text-orange-600 font-medium">Days</div>
+                    <div className="text-3xl sm:text-4xl font-bold text-orange-600">{user?.streak || 0}</div>
+                    <div className="text-[10px] sm:text-xs text-orange-600 font-medium">Days</div>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span className="text-sm text-gray-600">Classes Attended</span>
-                  <span className="text-lg font-semibold text-gray-900">{user?.attendedClasses || 0}</span>
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex justify-between items-center p-2.5 sm:p-3 bg-gray-50 rounded-lg">
+                  <span className="text-xs sm:text-sm text-gray-600">Classes Attended</span>
+                  <span className="text-base sm:text-lg font-semibold text-gray-900">{user?.attendedClasses || 0}</span>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span className="text-sm text-gray-600">Attendance Rate</span>
-                  <span className="text-lg font-semibold text-gray-900">{Math.round(attendanceRate)}%</span>
+                <div className="flex justify-between items-center p-2.5 sm:p-3 bg-gray-50 rounded-lg">
+                  <span className="text-xs sm:text-sm text-gray-600">Attendance Rate</span>
+                  <span className="text-base sm:text-lg font-semibold text-gray-900">{Math.round(attendanceRate)}%</span>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                  <span className="text-sm text-gray-600">Grace Units Left</span>
-                  <span className="text-lg font-semibold text-gray-900">{user?.graceUnitsRemaining || 0}/{user?.graceUnitsTotal || 2}</span>
+                <div className="flex justify-between items-center p-2.5 sm:p-3 bg-gray-50 rounded-lg">
+                  <span className="text-xs sm:text-sm text-gray-600">Grace Units Left</span>
+                  <span className="text-base sm:text-lg font-semibold text-gray-900">{user?.graceUnitsRemaining || 0}/{user?.graceUnitsTotal || 2}</span>
                 </div>
               </div>
             </div>
@@ -100,27 +100,27 @@ export default function StudentDashboard() {
 
           {/* Today's Schedule - Clean */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
-              <div className="flex items-center justify-between mb-6">
+            <div className="bg-white rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
                 <div className="flex items-center gap-2">
-                  <Calendar className="text-blue-600" size={20} />
-                  <h2 className="text-lg font-semibold text-gray-900">Today's Classes</h2>
+                  <Calendar className="text-blue-600" size={18} />
+                  <h2 className="text-base sm:text-lg font-semibold text-gray-900">Today's Classes</h2>
                 </div>
                 <span className="text-sm text-gray-500">{new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
               </div>
 
               {todaySchedule.length === 0 ? (
-                <div className="text-center py-12">
-                  <Calendar className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-600">No classes scheduled for today</p>
-                  <p className="text-sm text-gray-500 mt-1">Enjoy your free time!</p>
+                <div className="text-center py-8 sm:py-12">
+                  <Calendar className="w-10 h-10 sm:w-12 sm:h-12 text-gray-300 mx-auto mb-3" />
+                  <p className="text-sm sm:text-base text-gray-600">No classes scheduled for today</p>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">Enjoy your free time!</p>
                 </div>
               ) : (
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {todaySchedule.map((classItem) => (
                     <div
                       key={classItem.id}
-                      className={`p-4 rounded-lg border ${
+                      className={`p-3 sm:p-4 rounded-lg border ${
                         classItem.attended
                           ? 'bg-green-50 border-green-200'
                           : 'bg-white border-gray-200 hover:border-gray-300'
@@ -128,18 +128,18 @@ export default function StudentDashboard() {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <h3 className="font-semibold text-gray-900">{classItem.unit}</h3>
+                          <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                            <h3 className="text-sm sm:text-base font-semibold text-gray-900">{classItem.unit}</h3>
                             {classItem.attended && (
-                              <span className="px-2 py-0.5 bg-green-500 text-white text-xs font-medium rounded flex items-center gap-1">
-                                <CheckCircle size={12} />
+                              <span className="px-1.5 sm:px-2 py-0.5 bg-green-500 text-white text-[10px] sm:text-xs font-medium rounded flex items-center gap-1">
+                                <CheckCircle size={10} className="sm:w-3 sm:h-3" />
                                 Attended
                               </span>
                             )}
                           </div>
-                          <div className="flex items-center gap-4 text-sm text-gray-600">
+                          <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-600">
                             <span className="flex items-center gap-1">
-                              <Clock size={14} />
+                              <Clock size={12} className="sm:w-3.5 sm:h-3.5" />
                               {classItem.time}
                             </span>
                             <span>{classItem.room}</span>
@@ -149,9 +149,9 @@ export default function StudentDashboard() {
                         {!classItem.attended && (
                           <button
                             onClick={() => navigate('/scan')}
-                            className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
+                            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-600 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-700 active:bg-blue-800 transition-colors flex items-center gap-1.5 sm:gap-2"
                           >
-                            <QrCode size={16} />
+                            <QrCode size={14} className="sm:w-4 sm:h-4" />
                             Scan QR
                           </button>
                         )}
@@ -165,93 +165,93 @@ export default function StudentDashboard() {
         </div>
 
         {/* Quick Stats Row */}
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+          <div className="bg-white rounded-lg sm:rounded-xl shadow-sm p-3 sm:p-4 lg:p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Total Classes</p>
-                <p className="text-2xl font-bold text-gray-900">{user?.totalClasses || 0}</p>
+                <p className="text-[10px] sm:text-xs lg:text-sm text-gray-600 mb-1">Total Classes</p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">{user?.totalClasses || 0}</p>
               </div>
-              <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center">
-                <Calendar className="text-blue-600" size={24} />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-blue-50 rounded-lg flex items-center justify-center">
+                <Calendar className="text-blue-600" size={18} />
               </div>
             </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+          <div className="bg-white rounded-lg sm:rounded-xl shadow-sm p-3 sm:p-4 lg:p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Attended</p>
-                <p className="text-2xl font-bold text-gray-900">{user?.attendedClasses || 0}</p>
+                <p className="text-[10px] sm:text-xs lg:text-sm text-gray-600 mb-1">Attended</p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">{user?.attendedClasses || 0}</p>
               </div>
-              <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center">
-                <CheckCircle className="text-green-600" size={24} />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-green-50 rounded-lg flex items-center justify-center">
+                <CheckCircle className="text-green-600" size={18} />
               </div>
             </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+          <div className="bg-white rounded-lg sm:rounded-xl shadow-sm p-3 sm:p-4 lg:p-6 border border-gray-200">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600 mb-1">Current Streak</p>
-                <p className="text-2xl font-bold text-gray-900">{user?.streak || 0} days</p>
+                <p className="text-[10px] sm:text-xs lg:text-sm text-gray-600 mb-1">Current Streak</p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">{user?.streak || 0} days</p>
               </div>
-              <div className="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center">
-                <Flame className="text-orange-600" size={24} />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-orange-50 rounded-lg flex items-center justify-center">
+                <Flame className="text-orange-600" size={18} />
               </div>
             </div>
           </div>
         </div>
 
         {/* Quick Actions */}
-        <div className="grid md:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
           <button
             onClick={() => navigate('/scan')}
-            className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all flex flex-col items-center gap-3 group"
+            className="bg-white rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-5 lg:p-6 border border-gray-200 hover:shadow-md active:shadow-sm transition-all flex flex-col items-center gap-2 sm:gap-3 group"
           >
-            <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
-              <QrCode className="text-blue-600" size={24} />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+              <QrCode className="text-blue-600" size={20} />
             </div>
-            <span className="font-semibold text-gray-900">Scan QR</span>
+            <span className="text-sm sm:text-base font-semibold text-gray-900">Scan QR</span>
           </button>
 
           <button
             onClick={() => navigate('/rewards')}
-            className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all flex flex-col items-center gap-3 group"
+            className="bg-white rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-5 lg:p-6 border border-gray-200 hover:shadow-md active:shadow-sm transition-all flex flex-col items-center gap-2 sm:gap-3 group"
           >
-            <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
-              <Gift className="text-green-600" size={24} />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-green-50 rounded-lg flex items-center justify-center group-hover:bg-green-100 transition-colors">
+              <Gift className="text-green-600" size={20} />
             </div>
-            <span className="font-semibold text-gray-900">Rewards</span>
+            <span className="text-sm sm:text-base font-semibold text-gray-900">Rewards</span>
           </button>
 
           <button
             onClick={() => navigate('/chatbot')}
-            className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all flex flex-col items-center gap-3 group"
+            className="bg-white rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-5 lg:p-6 border border-gray-200 hover:shadow-md active:shadow-sm transition-all flex flex-col items-center gap-2 sm:gap-3 group"
           >
-            <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center group-hover:bg-purple-100 transition-colors">
-              <MessageCircle className="text-purple-600" size={24} />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-purple-50 rounded-lg flex items-center justify-center group-hover:bg-purple-100 transition-colors">
+              <MessageCircle className="text-purple-600" size={20} />
             </div>
-            <span className="font-semibold text-gray-900">Chat</span>
+            <span className="text-sm sm:text-base font-semibold text-gray-900">Chat</span>
           </button>
 
           <button
             onClick={() => navigate('/reports')}
-            className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-all flex flex-col items-center gap-3 group"
+            className="bg-white rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-5 lg:p-6 border border-gray-200 hover:shadow-md active:shadow-sm transition-all flex flex-col items-center gap-2 sm:gap-3 group"
           >
-            <div className="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center group-hover:bg-orange-100 transition-colors">
-              <TrendingUp className="text-orange-600" size={24} />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-orange-50 rounded-lg flex items-center justify-center group-hover:bg-orange-100 transition-colors">
+              <TrendingUp className="text-orange-600" size={20} />
             </div>
-            <span className="font-semibold text-gray-900">Reports</span>
+            <span className="text-sm sm:text-base font-semibold text-gray-900">Reports</span>
           </button>
         </div>
 
         {/* Motivational Quote */}
-        <div className="bg-blue-50 rounded-xl p-8 text-center border border-blue-200">
-          <p className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+        <div className="bg-blue-50 rounded-lg sm:rounded-xl p-4 sm:p-6 lg:p-8 text-center border border-blue-200">
+          <p className="text-base sm:text-lg lg:text-xl font-semibold text-gray-900 mb-2">
             "Your streak is your story, not your stress"
           </p>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600">
             Remember: showing up is half the battle. You're doing great. 🌟
           </p>
         </div>

@@ -81,6 +81,9 @@
       ],
       "password": "student123",
       "department": "Computer Science",
+      "program": "Diploma in Computer Science",
+      "year": 1,
+      "gender": "Female",
       "selectedUnits": [
         "u1",
         "u2",
@@ -97,8 +100,8 @@
       "streak": 15,
       "graceUnitsRemaining": 2,
       "graceUnitsTotal": 2,
-      "totalClasses": 45,
-      "attendedClasses": 42
+      "totalClasses": 47,
+      "attendedClasses": 44
     },
     {
       "id": "s2",
@@ -113,6 +116,9 @@
       ],
       "password": "student123",
       "department": "Computer Science",
+      "program": "Diploma in Computer Science",
+      "year": 2,
+      "gender": "Male",
       "selectedUnits": [
         "u1",
         "u2",
@@ -143,6 +149,9 @@
       ],
       "password": "student123",
       "department": "Computer Science",
+      "program": "Diploma in Computer Science",
+      "year": 3,
+      "gender": "Female",
       "selectedUnits": [
         "u6",
         "u7",
@@ -173,6 +182,9 @@
       ],
       "password": "student123",
       "department": "Computer Science",
+      "program": "Diploma in Computer Science",
+      "year": 1,
+      "gender": "Male",
       "selectedUnits": [
         "u1",
         "u3",
@@ -203,6 +215,9 @@
       ],
       "password": "student123",
       "department": "Computer Science",
+      "program": "Diploma in Information Technology",
+      "year": 2,
+      "gender": "Female",
       "selectedUnits": [
         "u6",
         "u8",
@@ -598,6 +613,36 @@
       "qrCode": "QR-u1-20251210-0830",
       "timestamp": "2025-12-10T16:37:10.205Z",
       "id": "QdD9P2Q"
+    },
+    {
+      "studentId": "s1",
+      "unitId": "class1",
+      "classId": "class1",
+      "date": "2025-12-10",
+      "time": "02:25",
+      "status": "present",
+      "qrSessionId": "qr-1765408859651",
+      "id": "1kkPQ5x"
+    },
+    {
+      "studentId": "s1",
+      "unitId": "u16",
+      "classId": "class4",
+      "date": "2025-12-10",
+      "time": "02:34",
+      "status": "present",
+      "qrSessionId": "qr-1765409600533",
+      "id": "6Mc-UIr"
+    },
+    {
+      "studentId": "s1",
+      "unitId": "u16",
+      "classId": "class4",
+      "date": "2025-12-10",
+      "time": "02:43",
+      "status": "present",
+      "qrSessionId": "qr-1765410185138",
+      "id": "Y5_Z7vj"
     }
   ],
   "qrSessions": [
@@ -622,6 +667,66 @@
       "endTime": "09:00",
       "qrCode": "QR-u1-20251210-0830",
       "active": true
+    },
+    {
+      "id": "qr-1765408859651",
+      "qrCode": "QR-class1-20251210-0220",
+      "classId": "class1",
+      "unitId": "class1",
+      "teacherId": "t1",
+      "date": "2025-12-10",
+      "time": "02:20",
+      "endTime": "02:50",
+      "active": true,
+      "scans": 0
+    },
+    {
+      "id": "qr-1765409194535",
+      "qrCode": "QR-class1-20251210-0226",
+      "classId": "class1",
+      "unitId": "class1",
+      "teacherId": "t1",
+      "date": "2025-12-10",
+      "time": "02:26",
+      "endTime": "02:56",
+      "active": true,
+      "scans": 0
+    },
+    {
+      "id": "qr-1765409600533",
+      "qrCode": "QR-u16-20251210-0233",
+      "classId": "class4",
+      "unitId": "u16",
+      "teacherId": "t1",
+      "date": "2025-12-10",
+      "time": "02:33",
+      "endTime": "03:03",
+      "active": true,
+      "scans": 0
+    },
+    {
+      "id": "qr-1765410185138",
+      "qrCode": "QR-u16-20251210-0243",
+      "classId": "class4",
+      "unitId": "u16",
+      "teacherId": "t1",
+      "date": "2025-12-10",
+      "time": "02:43",
+      "endTime": "03:13",
+      "active": true,
+      "scans": 0
+    },
+    {
+      "id": "qr-1765410379612",
+      "qrCode": "QR-u16-20251210-0246",
+      "classId": "class4",
+      "unitId": "u16",
+      "teacherId": "t1",
+      "date": "2025-12-10",
+      "time": "02:46",
+      "endTime": "03:16",
+      "active": true,
+      "scans": 0
     }
   ],
   "moodCheckins": [
@@ -726,5 +831,56 @@
       ],
       "encouragement": "You're doing wonderfully! Your consistency is impressive."
     }
-  ]
+  ],
+  "rescheduleRequests": [
+    {
+      "id": "reschedule-1765412268883",
+      "teacherId": "t1",
+      "teacherName": "Anne Ndungu",
+      "unitId": "u3",
+      "unitName": "Computer Systems",
+      "classId": "class1",
+      "originalDay": "Monday",
+      "originalTime": "10:30 - 11:30",
+      "newDate": "2025-12-15",
+      "newTime": "9:00 - 11:00",
+      "reason": "NA",
+      "status": "pending",
+      "requestedAt": "2025-12-11T00:17:48.883Z",
+      "type": "reschedule"
+    },
+    {
+      "id": "reschedule-1765413219408",
+      "teacherId": "t1",
+      "teacherName": "Anne Ndungu",
+      "unitId": "u2",
+      "unitName": "Discrete Mathematics",
+      "classId": "class1",
+      "originalDay": "Monday",
+      "originalTime": "09:15 - 10:15",
+      "newDate": "2025-12-14",
+      "newTime": "10:00-12:00",
+      "reason": "NA",
+      "status": "pending",
+      "requestedAt": "2025-12-11T00:33:39.408Z",
+      "type": "reschedule"
+    },
+    {
+      "id": "reschedule-1765413320622",
+      "teacherId": "t1",
+      "teacherName": "Anne Ndungu",
+      "unitId": "u16",
+      "unitName": "Networking Basics",
+      "classId": "class4",
+      "originalDay": "Thursday",
+      "originalTime": "08:00 - 09:00",
+      "newDate": "2025-12-15",
+      "newTime": "10:00 - 12:00",
+      "reason": "Na",
+      "status": "pending",
+      "requestedAt": "2025-12-11T00:35:20.622Z",
+      "type": "reschedule"
+    }
+  ],
+  "makeupClasses": []
 }

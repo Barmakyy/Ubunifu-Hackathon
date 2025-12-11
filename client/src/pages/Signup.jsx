@@ -108,17 +108,17 @@ function Signup() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sage-400 via-violet-400 to-coral-400 flex items-center justify-center px-4 py-8">
-      <div className="max-w-2xl w-full bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-10 animate-fade-in">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-sage-400 to-violet-400 rounded-2xl mb-4 shadow-lg">
-            {step === 1 && <Sparkles className="w-8 h-8 text-white" />}
-            {step === 2 && <GraduationCap className="w-8 h-8 text-white" />}
-            {step === 3 && <Heart className="w-8 h-8 text-white" />}
+      <div className="max-w-2xl w-full bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 animate-fade-in">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-sage-400 to-violet-400 rounded-xl sm:rounded-2xl mb-3 sm:mb-4 shadow-lg">
+            {step === 1 && <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />}
+            {step === 2 && <GraduationCap className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />}
+            {step === 3 && <Heart className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />}
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-sage-600 via-violet-600 to-coral-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-sage-600 via-violet-600 to-coral-600 bg-clip-text text-transparent mb-2">
             Join Us!
           </h1>
-          <p className="text-gray-600 text-sm md:text-base">
+          <p className="text-gray-600 text-xs sm:text-sm lg:text-base">
             {step === 1 && "Let's get to know you"}
             {step === 2 && "Tell us about your studies"}
             {step === 3 && "Personalize your experience"}
@@ -126,11 +126,11 @@ function Signup() {
         </div>
 
         {/* Progress indicator */}
-        <div className="flex items-center justify-center mb-10">
+        <div className="flex items-center justify-center mb-6 sm:mb-8 lg:mb-10">
           {[1, 2, 3].map((num) => (
             <div key={num} className="flex items-center">
               <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-300 ${
+                className={`w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full flex items-center justify-center font-bold text-base sm:text-lg transition-all duration-300 ${
                   step >= num
                     ? 'bg-gradient-to-br from-sage-500 to-violet-500 text-white shadow-lg scale-110'
                     : 'bg-gray-200 text-gray-400'
@@ -140,7 +140,7 @@ function Signup() {
               </div>
               {num < 3 && (
                 <div
-                  className={`w-12 md:w-20 h-1.5 mx-2 rounded-full transition-all duration-300 ${
+                  className={`w-8 sm:w-12 lg:w-20 h-1.5 mx-1.5 sm:mx-2 rounded-full transition-all duration-300 ${
                     step > num ? 'bg-gradient-to-r from-sage-500 to-violet-500' : 'bg-gray-200'
                   }`}
                 />
@@ -149,106 +149,106 @@ function Signup() {
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           {/* Step 1: Basic Info */}
           {step === 1 && (
-            <div className="space-y-5">
-              <h3 className="text-xl font-bold text-gray-800 mb-6">Basic Information</h3>
+            <div className="space-y-4 sm:space-y-5">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Basic Information</h3>
               
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Full Name</label>
                 <input
                   type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all text-sm"
                   placeholder="Your full name"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Email</label>
                 <input
                   type="email"
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all text-sm"
                   placeholder="your.email@university.edu"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Phone (Optional)</label>
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Phone (Optional)</label>
                 <input
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all text-sm"
                   placeholder="+1234567890"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Password</label>
                 <input
                   type="password"
                   required
                   minLength={6}
                   value={formData.password}
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                    focus:ring-sage-400 focus:border-sage-400 outline-none transition-all text-sm"
                   placeholder="At least 6 characters"
                 />
-                <p className="mt-1.5 text-xs text-gray-500">Choose a strong password to keep your account secure</p>
+                <p className="mt-1.5 text-[10px] sm:text-xs text-gray-500">Choose a strong password to keep your account secure</p>
               </div>
             </div>
           )}
 
           {/* Step 2: Academic Info */}
           {step === 2 && (
-            <div className="space-y-5">
-              <h3 className="text-xl font-bold text-gray-800 mb-6">Academic Details</h3>
+            <div className="space-y-4 sm:space-y-5">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Academic Details</h3>
               
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Institution</label>
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Institution</label>
                 <input
                   type="text"
                   required
                   value={formData.institution}
                   onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                    focus:ring-violet-400 focus:border-violet-400 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                    focus:ring-violet-400 focus:border-violet-400 outline-none transition-all text-sm"
                   placeholder="University of Example"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Course</label>
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Course</label>
                 <input
                   type="text"
                   required
                   value={formData.course}
                   onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                    focus:ring-violet-400 focus:border-violet-400 outline-none transition-all"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                    focus:ring-violet-400 focus:border-violet-400 outline-none transition-all text-sm"
                   placeholder="Computer Science"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Year</label>
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">Year</label>
                 <select
                   required
                   value={formData.year}
                   onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                    focus:ring-violet-400 focus:border-violet-400 outline-none transition-all bg-white"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                    focus:ring-violet-400 focus:border-violet-400 outline-none transition-all bg-white text-sm"
                 >
                   <option value="">Select year</option>
                   <option value="1st Year">1st Year</option>
@@ -260,18 +260,18 @@ function Signup() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
                   Semester Goals (Optional - Max 3)
                 </label>
-                <p className="text-xs text-gray-500 mb-3">What do you want to achieve this semester?</p>
+                <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3">What do you want to achieve this semester?</p>
                 {[0, 1, 2].map((i) => (
                   <input
                     key={i}
                     type="text"
                     value={formData.semesterGoals[i]}
                     onChange={(e) => handleGoalChange(i, e.target.value)}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 
-                      focus:ring-violet-400 focus:border-violet-400 outline-none mb-2.5 transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 
+                      focus:ring-violet-400 focus:border-violet-400 outline-none mb-2 sm:mb-2.5 transition-all text-sm"
                     placeholder={`Goal ${i + 1} (e.g., Maintain 85% attendance)`}
                   />
                 ))}
@@ -281,20 +281,20 @@ function Signup() {
 
           {/* Step 3: Preferences */}
           {step === 3 && (
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-gray-800 mb-6">Your Preferences</h3>
+            <div className="space-y-4 sm:space-y-6">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Your Preferences</h3>
               
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
                   When do you study best?
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {['morning', 'night', 'weekend', 'flexible'].map((pref) => (
                     <button
                       key={pref}
                       type="button"
                       onClick={() => setFormData({ ...formData, studyPreference: pref })}
-                      className={`px-4 py-3.5 rounded-xl border-2 capitalize font-semibold transition-all ${
+                      className={`px-3 sm:px-4 py-2.5 sm:py-3 lg:py-3.5 rounded-lg sm:rounded-xl border-2 capitalize text-sm sm:text-base font-semibold transition-all ${
                         formData.studyPreference === pref
                           ? 'border-coral-500 bg-coral-50 text-coral-700 shadow-md scale-105'
                           : 'border-gray-200 hover:border-coral-300 text-gray-600'
@@ -307,11 +307,11 @@ function Signup() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2">
                   What is your student type?
                 </label>
-                <p className="text-xs text-gray-500 mb-3">This helps us personalize your experience</p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <p className="text-[10px] sm:text-xs text-gray-500 mb-2 sm:mb-3">This helps us personalize your experience</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                   {[
                     { value: 'hustler', emoji: '🚀', label: 'Hustler', desc: 'Fast wins, competitive' },
                     { value: 'anxious', emoji: '🎯', label: 'Planner', desc: 'Needs reassurance, steps' },
@@ -322,27 +322,27 @@ function Signup() {
                       key={persona.value}
                       type="button"
                       onClick={() => setFormData({ ...formData, motivationPersona: persona.value })}
-                      className={`px-4 py-3 rounded-xl border-2 font-medium transition-all text-left ${
+                      className={`px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl border-2 font-medium transition-all text-left ${
                         formData.motivationPersona === persona.value
                           ? 'border-violet-500 bg-violet-50 text-violet-700 shadow-md scale-105'
                           : 'border-gray-200 hover:border-violet-300'
                       }`}
                     >
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-2xl">{persona.emoji}</span>
-                        <span className="font-bold text-base">{persona.label}</span>
+                        <span className="text-xl sm:text-2xl">{persona.emoji}</span>
+                        <span className="font-bold text-sm sm:text-base">{persona.label}</span>
                       </div>
-                      <p className="text-xs text-gray-600">{persona.desc}</p>
+                      <p className="text-[10px] sm:text-xs text-gray-600">{persona.desc}</p>
                     </button>
                   ))}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
                   How should we motivate you?
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {[
                     { value: 'friendly', emoji: '😊', label: 'Friendly' },
                     { value: 'strict', emoji: '💪', label: 'Strict' },
@@ -353,7 +353,7 @@ function Signup() {
                       key={style.value}
                       type="button"
                       onClick={() => setFormData({ ...formData, motivationStyle: style.value })}
-                      className={`px-4 py-3.5 rounded-xl border-2 font-semibold transition-all ${
+                      className={`px-3 sm:px-4 py-2.5 sm:py-3 lg:py-3.5 rounded-lg sm:rounded-xl border-2 text-sm sm:text-base font-semibold transition-all ${
                         formData.motivationStyle === style.value
                           ? 'border-sage-500 bg-sage-50 text-sage-700 shadow-md scale-105'
                           : 'border-gray-200 hover:border-sage-300 text-gray-600'
@@ -369,13 +369,13 @@ function Signup() {
           )}
 
           {/* Navigation buttons */}
-          <div className="flex gap-3 pt-6">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-4 sm:pt-6">
             {step > 1 && (
               <button
                 type="button"
                 onClick={() => setStep(step - 1)}
-                className="flex-1 px-6 py-3.5 border-2 border-gray-300 rounded-xl font-semibold
-                  text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all"
+                className="flex-1 px-4 sm:px-6 py-2.5 sm:py-3 lg:py-3.5 border-2 border-gray-300 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold
+                  text-gray-700 hover:bg-gray-50 hover:border-gray-400 active:bg-gray-100 transition-all"
               >
                 Back
               </button>
@@ -385,8 +385,8 @@ function Signup() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex-1 px-6 py-3.5 bg-gradient-to-r from-sage-500 to-violet-500 text-white 
-                  rounded-xl font-bold hover:shadow-lg hover:scale-105 transition-all"
+                className="flex-1 px-4 sm:px-6 py-2.5 sm:py-3 lg:py-3.5 bg-gradient-to-r from-sage-500 to-violet-500 text-white 
+                  rounded-lg sm:rounded-xl text-sm sm:text-base font-bold hover:shadow-lg active:shadow-md hover:scale-105 transition-all"
               >
                 Next Step
               </button>
@@ -394,8 +394,8 @@ function Signup() {
               <button
                 type="submit"
                 disabled={loading}
-                className="flex-1 px-6 py-3.5 bg-gradient-to-r from-violet-500 to-coral-500 text-white 
-                  rounded-xl font-bold hover:shadow-lg hover:scale-105 disabled:opacity-50 
+                className="flex-1 px-4 sm:px-6 py-2.5 sm:py-3 lg:py-3.5 bg-gradient-to-r from-violet-500 to-coral-500 text-white 
+                  rounded-lg sm:rounded-xl text-sm sm:text-base font-bold hover:shadow-lg active:shadow-md hover:scale-105 disabled:opacity-50 
                   disabled:cursor-not-allowed disabled:hover:scale-100 transition-all"
               >
                 {loading ? 'Creating Account...' : 'Complete Signup ✨'}
@@ -404,7 +404,7 @@ function Signup() {
           </div>
         </form>
 
-        <p className="mt-8 text-center text-sm text-gray-600">
+        <p className="mt-6 sm:mt-8 text-center text-xs sm:text-sm text-gray-600">
           Already have an account?{' '}
           <Link to="/login" className="text-sage-600 font-bold hover:text-sage-700 underline decoration-2">
             Login here

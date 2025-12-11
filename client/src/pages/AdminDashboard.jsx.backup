@@ -1,0 +1,334 @@
+import { useState, useEffect } from 'react';
+import { useAuthStore } from '../store/authStore';
+import { 
+  Users, 
+  BookOpen, 
+  Award, 
+  Upload, 
+  TrendingUp, 
+  Calendar, 
+  Settings,
+  Activity,
+  Building,
+  GraduationCap,
+  Clock,
+  BarChart3,
+  PieChart as PieChartIcon,
+  School,
+  MapPin,
+  Filter,
+  Download,
+  RefreshCw,
+  Eye,
+  UserCheck
+} from 'lucide-react';
+import api from '../utils/api';
+import toast from 'react-hot-toast';
+import { format, startOfWeek, startOfMonth, parseISO } from 'date-fns';
+import {
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  Area,
+  AreaChart
+} from 'recharts';
+
+export default function AdminDashboard() {
+  const { user } = useAuthStore();
+  const [stats, setStats] = useState({
+    totalStudents: 0,
+    totalLecturers: 0,
+    avgAttendance: 0,
+    activeStreaks: 0
+  });
+  const [showUpload, setShowUpload] = useState(false);
+  const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
+  const fetchStats = async () => {
+    try {
+      // Mock data - replace with actual API call
+      setStats({
+        totalStudents: 145,
+        totalLecturers: 12,
+        avgAttendance: 87,
+        activeStreaks: 89
+      });
+    } catch (error) {
+      console.error('Error fetching stats:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleFileUpload = async (e) => {
+    e.preventDefault();
+    if (!file) {
+      toast.error('Please select a file');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('timetable', file);
+
+    try {
+      await api.post('/admin/timetable/upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      
+      toast.success('Timetable uploaded successfully!');
+      setFile(null);
+      setShowUpload(false);
+    } catch (error) {
+      toast.error('Failed to upload timetable');
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-violet-50 via-cream-50 to-dusty-50 p-6">
+      <div className="max-w-7xl mx-auto space-y-6">
+        {/* Header */}
+        <div className="bg-white rounded-[1.5rem] shadow-xl p-8">
+          <h1 className="text-4xl font-bold text-violet-800 mb-2">Admin Dashboard</h1>
+          <p className="text-violet-600 text-lg">Institution-wide overview and management</p>
+        </div>
+
+        {/* Stats Overview */}
+        <div className="grid md:grid-cols-4 gap-6">
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-center justify-between mb-4">
+              <Users className="text-sage-500" size={32} />
+              <span className="text-xs text-sage-600 font-medium uppercase">Students</span>
+            </div>
+            <div className="text-4xl font-bold text-sage-800 mb-1">{stats.totalStudents}</div>
+            <div className="text-sm text-sage-600">Active students</div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-center justify-between mb-4">
+              <BookOpen className="text-violet-500" size={32} />
+              <span className="text-xs text-violet-600 font-medium uppercase">Lecturers</span>
+            </div>
+            <div className="text-4xl font-bold text-violet-800 mb-1">{stats.totalLecturers}</div>
+            <div className="text-sm text-violet-600">Teaching staff</div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-center justify-between mb-4">
+              <TrendingUp className="text-dusty-500" size={32} />
+              <span className="text-xs text-dusty-600 font-medium uppercase">Attendance</span>
+            </div>
+            <div className="text-4xl font-bold text-dusty-800 mb-1">{stats.avgAttendance}%</div>
+            <div className="text-sm text-dusty-600">Average rate</div>
+          </div>
+
+          <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="flex items-center justify-between mb-4">
+              <Award className="text-coral-500" size={32} />
+              <span className="text-xs text-coral-600 font-medium uppercase">Streaks</span>
+            </div>
+            <div className="text-4xl font-bold text-coral-800 mb-1">{stats.activeStreaks}</div>
+            <div className="text-sm text-coral-600">Active streaks</div>
+          </div>
+        </div>
+
+        {/* Main Grid */}
+        <div className="grid lg:grid-cols-2 gap-6">
+          {/* Timetable Upload */}
+          <div className="bg-white rounded-[1.5rem] shadow-xl p-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-violet-800">Timetable Management</h2>
+              <Calendar className="text-violet-500" size={28} />
+            </div>
+
+            {!showUpload ? (
+              <div className="text-center py-8">
+                <Upload className="w-16 h-16 text-violet-300 mx-auto mb-4" />
+                <p className="text-violet-600 mb-4">Upload a CSV file with the timetable</p>
+                <button
+                  onClick={() => setShowUpload(true)}
+                  className="px-6 py-3 bg-violet-500 text-white rounded-xl font-medium hover:bg-violet-600 transition-colors"
+                >
+                  Upload Timetable
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleFileUpload} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-violet-700 mb-2">
+                    Select CSV File
+                  </label>
+                  <input
+                    type="file"
+                    accept=".csv"
+                    onChange={(e) => setFile(e.target.files[0])}
+                    className="w-full px-4 py-3 border-2 border-violet-200 rounded-xl focus:border-violet-500 focus:outline-none"
+                  />
+                </div>
+
+                <div className="bg-violet-50 rounded-xl p-4 border-2 border-violet-200">
+                  <p className="text-sm text-violet-700 mb-2 font-medium">CSV Format:</p>
+                  <p className="text-xs text-violet-600 font-mono">
+                    classId, day, period, unitId, startTime, endTime
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setShowUpload(false);
+                      setFile(null);
+                    }}
+                    className="flex-1 px-4 py-3 border-2 border-violet-300 text-violet-700 rounded-xl font-medium hover:bg-violet-50 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-3 bg-violet-500 text-white rounded-xl font-medium hover:bg-violet-600 transition-colors"
+                  >
+                    Upload
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+
+          {/* Reward Settings */}
+          <div className="bg-white rounded-[1.5rem] shadow-xl p-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-violet-800">Reward Definitions</h2>
+              <Award className="text-violet-500" size={28} />
+            </div>
+
+            <div className="space-y-3">
+              {[
+                { milestone: 10, reward: 'Library Priority Access' },
+                { milestone: 20, reward: 'Digital Badge' },
+                { milestone: 40, reward: 'Hostel Room Priority' },
+                { milestone: 60, reward: 'Certificate of Excellence' }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="p-4 bg-sage-50 rounded-xl border-2 border-sage-200 flex items-center justify-between"
+                >
+                  <div>
+                    <div className="font-semibold text-sage-800">{item.reward}</div>
+                    <div className="text-sm text-sage-600">At {item.milestone} day streak</div>
+                  </div>
+                  <button className="px-3 py-1 text-sage-700 hover:bg-sage-100 rounded-lg transition-colors">
+                    <Settings size={18} />
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <button className="w-full mt-4 px-4 py-3 border-2 border-violet-300 text-violet-700 rounded-xl font-medium hover:bg-violet-50 transition-colors">
+              Add New Reward
+            </button>
+          </div>
+        </div>
+
+        {/* Attendance Heatmap */}
+        <div className="bg-white rounded-[1.5rem] shadow-xl p-8">
+          <h2 className="text-2xl font-bold text-violet-800 mb-6">Attendance Heatmap</h2>
+          
+          <div className="grid grid-cols-7 gap-2 mb-4">
+            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
+              <div key={day} className="text-center text-sm font-medium text-violet-700">
+                {day}
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-7 gap-2">
+            {[...Array(35)].map((_, i) => {
+              const intensity = Math.random();
+              return (
+                <div
+                  key={i}
+                  className="aspect-square rounded-lg transition-all hover:scale-110 cursor-pointer"
+                  style={{
+                    backgroundColor: intensity > 0.8 ? '#5a925a' :
+                                   intensity > 0.6 ? '#7fad7f' :
+                                   intensity > 0.4 ? '#aac9aa' :
+                                   intensity > 0.2 ? '#d1e1d1' : '#e8f0e8'
+                  }}
+                  title={`${Math.round(intensity * 100)}% attendance`}
+                />
+              );
+            })}
+          </div>
+
+          <div className="flex items-center justify-center gap-2 mt-6">
+            <span className="text-sm text-violet-600">Less</span>
+            {[0.2, 0.4, 0.6, 0.8, 1].map((intensity, i) => (
+              <div
+                key={i}
+                className="w-6 h-6 rounded"
+                style={{
+                  backgroundColor: intensity === 1 ? '#5a925a' :
+                                 intensity === 0.8 ? '#7fad7f' :
+                                 intensity === 0.6 ? '#aac9aa' :
+                                 intensity === 0.4 ? '#d1e1d1' : '#e8f0e8'
+                }}
+              />
+            ))}
+            <span className="text-sm text-violet-600">More</span>
+          </div>
+        </div>
+
+        {/* Lecturer Management */}
+        <div className="bg-white rounded-[1.5rem] shadow-xl p-8">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-bold text-violet-800">Lecturer Management</h2>
+            <button className="px-4 py-2 bg-violet-500 text-white rounded-xl font-medium hover:bg-violet-600 transition-colors">
+              Add Lecturer
+            </button>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              { name: 'Anne Ndungu', email: 'anne.ndungu@coasttech.ac.ke', classes: 3 },
+              { name: 'Brian Mwangi', email: 'brian.mwangi@coasttech.ac.ke', classes: 4 },
+              { name: 'Carol Otieno', email: 'carol.otieno@coasttech.ac.ke', classes: 3 }
+            ].map((lecturer, index) => (
+              <div
+                key={index}
+                className="p-4 bg-dusty-50 rounded-xl border-2 border-dusty-200 flex items-center justify-between"
+              >
+                <div>
+                  <div className="font-semibold text-dusty-800">{lecturer.name}</div>
+                  <div className="text-sm text-dusty-600">{lecturer.email}</div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="text-sm text-dusty-700">
+                    <span className="font-bold">{lecturer.classes}</span> classes
+                  </div>
+                  <button className="px-3 py-1 text-dusty-700 hover:bg-dusty-100 rounded-lg transition-colors">
+                    <Settings size={18} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
