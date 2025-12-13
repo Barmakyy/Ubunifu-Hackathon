@@ -48,7 +48,18 @@ function Reports() {
         </div>
       ) : (
         <div className="space-y-4 sm:space-y-6">
-          {reports.map((report) => (
+          {reports.map((report) => {
+            // Validate dates
+            const weekStart = report.weekStartDate ? new Date(report.weekStartDate) : new Date();
+            const weekEnd = report.weekEndDate ? new Date(report.weekEndDate) : new Date();
+            const generated = report.generatedAt ? new Date(report.generatedAt) : new Date();
+            
+            // Check if dates are valid
+            const isValidStart = !isNaN(weekStart.getTime());
+            const isValidEnd = !isNaN(weekEnd.getTime());
+            const isValidGenerated = !isNaN(generated.getTime());
+
+            return (
             <div
               key={report._id}
               className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200"
@@ -57,35 +68,35 @@ function Reports() {
               <div className="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-0 mb-4 sm:mb-6">
                 <div>
                   <h3 className="text-base sm:text-lg font-semibold text-gray-900">
-                    Week of {format(new Date(report.weekStartDate), 'MMM dd, yyyy')}
+                    Week of {isValidStart ? format(weekStart, 'MMM dd, yyyy') : 'N/A'}
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                    {format(new Date(report.weekStartDate), 'MMM dd')} - {format(new Date(report.weekEndDate), 'MMM dd, yyyy')}
+                    {isValidStart && isValidEnd ? `${format(weekStart, 'MMM dd')} - ${format(weekEnd, 'MMM dd, yyyy')}` : 'N/A'}
                   </p>
                 </div>
                 <div className="text-xs sm:text-sm text-gray-500">
-                  Generated {format(new Date(report.generatedAt), 'MMM dd')}
+                  Generated {isValidGenerated ? format(generated, 'MMM dd') : 'N/A'}
                 </div>
               </div>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 mb-4 sm:mb-6">
-                <div className="bg-green-50 rounded-lg p-3 sm:p-4">
+                <div key="attended" className="bg-green-50 rounded-lg p-3 sm:p-4">
                   <p className="text-xs sm:text-sm text-green-600 font-medium mb-1">Classes Attended</p>
                   <p className="text-xl sm:text-2xl font-bold text-green-700">{report.classesAttended}</p>
                 </div>
                 
-                <div className="bg-red-50 rounded-lg p-3 sm:p-4">
+                <div key="missed" className="bg-red-50 rounded-lg p-3 sm:p-4">
                   <p className="text-xs sm:text-sm text-red-600 font-medium mb-1">Classes Missed</p>
                   <p className="text-xl sm:text-2xl font-bold text-red-700">{report.classesMissed}</p>
                 </div>
                 
-                <div className="bg-blue-50 rounded-lg p-3 sm:p-4">
+                <div key="completed" className="bg-blue-50 rounded-lg p-3 sm:p-4">
                   <p className="text-xs sm:text-sm text-blue-600 font-medium mb-1">Tasks Completed</p>
                   <p className="text-xl sm:text-2xl font-bold text-blue-700">{report.tasksCompleted}</p>
                 </div>
                 
-                <div className="bg-yellow-50 rounded-lg p-3 sm:p-4">
+                <div key="pending" className="bg-yellow-50 rounded-lg p-3 sm:p-4">
                   <p className="text-xs sm:text-sm text-yellow-600 font-medium mb-1">Tasks Pending</p>
                   <p className="text-xl sm:text-2xl font-bold text-yellow-700">{report.tasksPending}</p>
                 </div>
@@ -139,7 +150,8 @@ function Reports() {
                 </div>
               )}
             </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>
